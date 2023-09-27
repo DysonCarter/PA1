@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title> Dyson Carter's Webpage </title>
+    <style>
+      body { background-color: HoneyDew; 
+             color: DarkSlateGray;
+             font-family: verdana; }
+      h1 { text-align: center; } 
+    </style>
+  </head>
+  <body>
+    <h1> Dyson Carter's Webpage </h1>
+    <p> Welcome to my Webpage. Please make yourself at home. </p>
+    <h3> Factorial Calculator: </h3>
+
+    <form id="factForm">
+      <label for="num">Enter a number:</label>
+      <input type="number" id="num" name="num" required>
+      <button type="submit">Calculate</button>
+    </form>
+
+    <p id="result"></p>
+
+    <script>
+	function factorial(num) {
+	if(num === 0 || num === 1) {return 1;}
+	return num * factorial(num - 1);
+	}
+
+	document.getElementById('factForm').addEventListener('submit', function (event) {
+ 	event.preventDefault();
+        const num = parseInt(document.getElementById('num').value);
+        const result = factorial(num);
+        document.getElementById('result').textContent = `Factorial of ${num} is: ${result}`;
+        });
+    </script>
+  </body>
+</html>
