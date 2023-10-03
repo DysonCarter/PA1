@@ -16,7 +16,21 @@
   </head>
   <body>
     <h1> Dyson Carter's Webpage </h1>
+    <h2 id="currentTime" style="text-align: center;"></h2>
+
+    <script>
+      var today = new Date();
+      document.getElementById("currentTime").textContent = "Today is " + today;
+    </script>
+
+    <h6>Completed October 2nd 8:30pm</h6>
     <p> Welcome to my Webpage. Please make yourself at home. </p>
+
+    <p id="app"></p>
+
+    <script>
+      document.getElementById("app").innerHTML = "Info about your browser: " + navigator.userAgent;
+    </script>
 
     <button onclick="runFactorial()">Factorial Calculator</button>
     <p id="result"></p>
@@ -42,6 +56,22 @@
           return n * factorial(n - 1);
         }
       }
+    </script>
+
+    <img src="PBJ.gif" id="PBJ" style="transition: transform 0.5s ease-in-out;">
+
+    <script>
+      const PBJ = document.getElementById("PBJ");
+  
+      //look for click
+      document.addEventListener("click", function moveIt(e){
+        //get new position
+        const newX = e.clientX - PBJ.offsetWidth/2;
+        const newY = e.clientY - PBJ.offsetHeight; 
+  
+        //Move it
+        PBJ.style.transform = `translate(${newX}px, ${newY}px)`;
+      });
     </script>
   </body>
 </html>
