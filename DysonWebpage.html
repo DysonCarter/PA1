@@ -12,6 +12,18 @@
       h1 {
         text-align: center;
       }
+
+      .my-button {
+      background-color: darkorange;
+      color: honeydew;
+      text-align: center;
+      border-color: darkslategray;
+      font-size: 16px;
+      margin: 4px 2px;
+      }   
+      .my-button:hover {
+      background-color: #e23707;
+      }
     </style>
   </head>
   <body>
@@ -32,7 +44,11 @@
       document.getElementById("app").innerHTML = "Info about your browser: " + navigator.userAgent;
     </script>
 
-    <button onclick="runFactorial()">Factorial Calculator</button>
+    <hr>
+    <img src="PBJ.gif" id="PBJ" style="transition: transform 0.5s ease-in-out;">
+    <hr>
+
+    <button class="my-button" onclick="runFactorial()">Factorial Calculator</button>
     <p id="result"></p>
 
     <script>
@@ -57,9 +73,7 @@
         }
       }
     </script>
-
-    <img src="PBJ.gif" id="PBJ" style="transition: transform 0.5s ease-in-out;">
-
+    <!-- Script for image animation: -->
     <script>
       const PBJ = document.getElementById("PBJ");
   
@@ -67,10 +81,10 @@
       document.addEventListener("click", function moveIt(e){
         //get new position
         const newX = e.clientX - PBJ.offsetWidth/2;
-        const newY = e.clientY - PBJ.offsetHeight; 
+        const newY = e.clientY - PBJ.offsetHeight; //I think the text effects the y axis, not sure how to fix that
   
         //Move it
-        PBJ.style.transform = `translate(${newX}px, ${newY}px)`;
+        PBJ.style.transform = "translate(" + newX + "px," + newY + "px)";
       });
     </script>
   </body>
